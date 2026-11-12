@@ -33,3 +33,22 @@ def test_dias_para_futuro_data_passada_erro():
     hoje = date(2026, 11, 11)
     with pytest.raises(ValueError):
         dias_para_futuro(passado, hoje)
+
+
+
+# Atualize a linha de importação no topo:
+from datas import calcular_idade, dias_desde_passado, dias_para_futuro
+
+
+# Adicione ao final do arquivo:
+def test_dias_desde_passado():
+    passado = date(2026, 11, 1)
+    hoje = date(2026, 11, 11)
+    assert dias_desde_passado(passado, hoje) == 10
+
+
+def test_dias_desde_passado_data_futura_erro():
+    futuro = date(2030, 1, 1)
+    hoje = date(2026, 11, 11)
+    with pytest.raises(ValueError):
+        dias_desde_passado(futuro, hoje)
