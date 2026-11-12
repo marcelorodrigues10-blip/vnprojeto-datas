@@ -29,3 +29,15 @@ def dias_para_futuro(data_futura: date, data_referencia: date = None) -> int:
         raise ValueError("A data informada deve estar no futuro.")
 
     return (data_futura - data_referencia).days
+
+
+
+def dias_desde_passado(data_passada: date, data_referencia: date = None) -> int:
+    """Calcula quantos dias se passaram após uma data no passado."""
+    if data_referencia is None:
+        data_referencia = date.today()
+
+    if data_passada > data_referencia:
+        raise ValueError("A data informada deve estar no passado.")
+
+    return (data_referencia - data_passada).days
